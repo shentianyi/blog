@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+%w(Ruby Rails Javascript Linux).each_with_index do |c, i|
+  Category.create(name: c, rank: i)
+end
