@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150706084603) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255
+    t.integer  "rank",       limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
