@@ -53,8 +53,8 @@ group :development, :test do
   # auto deploy
   gem 'capistrano', '~> 3.4.0'
   gem 'capistrano-rails'
-  gem 'rvm-capistrano', require: false
-
+  gem 'capistrano-rvm', require: false
+  gem 'capistrano-passenger', require: false
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
