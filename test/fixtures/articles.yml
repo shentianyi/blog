@@ -2,10 +2,10 @@
 
 one:
   title: MyString
-  text: MyText
+  body: MyText
   category_id: 
 
 two:
   title: MyString
-  text: MyText
+  body: MyText
   category_id: 

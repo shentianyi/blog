@@ -2,7 +2,7 @@
 source 'https://ruby.taobao.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails', '~> 4.2.2'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets
@@ -29,10 +29,33 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# color
+gem 'colorize'
+
+# user auth
+gem 'devise', '~> 3.4.0'
+
+# permission
+gem 'cancancan', '~> 1.12'
+
+# mark down
+gem 'redcarpet', '~> 3.3.2'
+gem 'rouge', '~> 1.9.1'
+gem 'auto-space'
+gem 'nokogiri', '~>1.6.6'
+
+# from
+gem 'simple_form', '3.1.0'
+
 
 group :development, :test do
+
+  # auto deploy
+  gem 'capistrano', '~> 3.4.0'
+
+  gem 'capistrano-rails'
+
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -42,6 +65,3 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
-# user auth
-gem 'devise','3.2.4'

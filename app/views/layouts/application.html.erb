@@ -2,13 +2,25 @@
 <html>
 <head>
   <title>Blog</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render 'shares/menu'%>
+
+<% if current_user %>
+    <%= current_user.name %>
+    <%= link_to('注销', destroy_user_session_path, method: "delete") %>
+<% end %>
 <%= yield %>
 
 </body>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery("abbr.timeago").timeago();
+        $('pre code').each(function (i, block) {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
 </html>

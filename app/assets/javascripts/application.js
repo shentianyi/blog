@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery/jquery.timeago
 //= require turbolinks
+//= require highlightjs/highlight.pack
 //= require_tree .
