@@ -7,7 +7,7 @@ set :repo_url, 'git@github.com:Charlot/blog.git'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/root/deploy/blog"
+set :deploy_to, "/project/blog"
 
 # Default value for :scm is :git
 set :scm, :git
