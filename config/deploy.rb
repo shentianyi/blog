@@ -39,12 +39,8 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/
 namespace :deploy do
 
   after :migrate, :update do
-    on primary fetch(:migration_role) do
-      # within release_path do
-        run "cd #{fetch(:current_path)}; bundle exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
-        # execute :rake, 'deploy:seed'
-      # end
-    end
+    puts "rake db:seed ----------#{fetch(:current_path)}----#{fetch(:rails_env)}"
+    run "cd #{fetch(:current_path)}; bundle exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
   end
 
   after :restart, :clear_cache do
