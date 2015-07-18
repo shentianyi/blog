@@ -9,6 +9,9 @@ set :repo_url, 'git@github.com:Charlot/blog.git'
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/project/blog"
 
+# set default current_path
+set :current_path, "/project/blog/current"
+
 # Default value for :scm is :git
 set :scm, :git
 
@@ -22,7 +25,7 @@ set :scm, :git
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml','config/application.yml')
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', 'config/application.yml')
 
 # Default value for linked_dirs is []
 # set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
@@ -35,6 +38,10 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/
 
 namespace :deploy do
 
+  # after :finalize_update, :symlink do
+  #   execute :rake, 'deploy:seed'
+  # end
+
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
@@ -45,3 +52,5 @@ namespace :deploy do
   end
 
 end
+
+# after 'deploy:finalize_update', :seed
