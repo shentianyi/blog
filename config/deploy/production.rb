@@ -18,7 +18,7 @@ set :stage, :production
 # Don't use `:all`, it's a meta role.
 
 role :app, %w{charlot.xyz}, user: 'root'
-role :web, %w{charlot.xyz}, user: 'root'
+role :web, %w{charlot.xyz}, user: 'blog'
 role :db, %w{charlot.xyz}, user: 'root'
 
 
