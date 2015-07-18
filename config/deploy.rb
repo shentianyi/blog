@@ -39,8 +39,10 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/
 namespace :deploy do
 
   after :migrate, :update do
-    within release_path do
-      execute :rake, 'deploy:seed'
+    on primary fetch(:migration_role) do
+      within release_path do
+        execute :rake, 'deploy:seed'
+      end
     end
   end
 
