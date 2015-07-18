@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
+  host: 127.0.0.1
   database: blog_production
   username: blog
   password: <%= ENV['BLOG_DATABASE_PASSWORD'] %>
