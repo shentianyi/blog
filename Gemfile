@@ -45,7 +45,10 @@ gem 'auto-space'
 gem 'nokogiri', '~>1.6.6'
 
 # from
-gem 'simple_form', '3.1.0'
+gem 'simple_form' #, '3.1.0'
+
+# env
+gem 'figaro'
 
 
 group :development, :test do
