@@ -7,7 +7,7 @@
 # stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
 #
 production:
-   secret_key_base: ****
+   SECRET_KEY_BASE: ****
    BLOG_DATABASE_PASSWORD: ****
    DEFAULT_USER_EMAIL: ****
    DEFAULT_USER_PASSWORD: ****

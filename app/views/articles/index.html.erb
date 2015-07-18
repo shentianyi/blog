@@ -5,6 +5,7 @@
 <table class="table table-bordered table-responsive">
   <thead>
   <tr>
+    <th>#</th>
     <th>Title</th>
     <th>Category</th>
     <th>Created At</th>
@@ -13,8 +14,9 @@
   </thead>
 
   <tbody>
-  <% @articles.each do |article| %>
+  <% @articles.each_with_index do |article, i| %>
       <tr>
+        <td><%= i+1 %></td>
         <td><%= article.title %></td>
         <td><%= article.category.name %></td>
         <td><%= raw timeago(article.created_at) %></td>
