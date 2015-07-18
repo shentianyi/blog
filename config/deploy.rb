@@ -7,10 +7,10 @@ set :repo_url, 'git@github.com:Charlot/blog.git'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/project/blog"
+set :deploy_to, "/project/#{fetch(:application)}"
 
 # set default current_path
-set :current_path, "/project/blog/current"
+set :current_path, "/project/#{fetch(:application)}/current"
 
 # Default value for :scm is :git
 set :scm, :git
@@ -40,9 +40,10 @@ namespace :deploy do
 
   after :migrate, :update do
     on primary fetch(:migration_role) do
-      within release_path do
-        execute :rake, 'deploy:seed'
-      end
+      # within release_path do
+        run "cd #{fetch(:current_path)}; bundle exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
+        # execute :rake, 'deploy:seed'
+      # end
     end
   end
 
