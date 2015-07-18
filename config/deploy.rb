@@ -10,7 +10,7 @@ set :repo_url, 'git@github.com:Charlot/blog.git'
 set :deploy_to, "/project/#{fetch(:application)}"
 
 # set default current_path
-set :current_path, "/project/#{fetch(:application)}/current"
+# set :current_path, "/project/#{fetch(:application)}/current"
 
 # Default value for :scm is :git
 set :scm, :git
@@ -39,8 +39,13 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/
 namespace :deploy do
 
   after :migrate, :update do
-    puts "rake db:seed ----------#{fetch(:current_path)}----#{fetch(:rails_env)}"
-    run "cd #{fetch(:current_path)}; bundle exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
+    on primary fetch(:migration_role) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, 'db:seed'
+        end
+      end
+    end
   end
 
   after :restart, :clear_cache do
@@ -53,5 +58,3 @@ namespace :deploy do
   end
 
 end
-
-# after 'deploy:finalize_update', :seed
