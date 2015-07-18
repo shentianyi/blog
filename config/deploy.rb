@@ -42,6 +42,10 @@ namespace :deploy do
   #   execute :rake, 'deploy:seed'
   # end
 
+  after :migrate, :update do
+    execute :rake, 'deploy:seed'
+  end
+
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
