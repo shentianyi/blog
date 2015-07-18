@@ -4,6 +4,7 @@
   <title>Blog</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -12,8 +13,9 @@
     <%= current_user.name %>
     <%= link_to('注销', destroy_user_session_path, method: "delete") %>
 <% end %>
-<%= yield %>
-
+<section class="container">
+  <%= yield %>
+</section>
 </body>
 <script type="text/javascript">
     jQuery(document).ready(function () {
