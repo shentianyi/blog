@@ -38,12 +38,10 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/
 
 namespace :deploy do
 
-  # after :finalize_update, :symlink do
-  #   execute :rake, 'deploy:seed'
-  # end
-
   after :migrate, :update do
-    execute :rake, 'deploy:seed'
+    within release_path do
+      execute :rake, 'deploy:seed'
+    end
   end
 
   after :restart, :clear_cache do
