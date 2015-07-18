@@ -9,3 +9,5 @@
 production:
    secret_key_base: ****
    BLOG_DATABASE_PASSWORD: ****
+   DEFAULT_USER_EMAIL: ****
+   DEFAULT_USER_PASSWORD: ****
