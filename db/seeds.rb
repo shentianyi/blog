@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 puts 'build admin user'
+puts ENV['DEFAULT_USER_EMAIL']
+
 unless User.find_by_email(ENV['DEFAULT_USER_EMAIL'])
   User.create(name: 'Charlot',
               email: ENV['DEFAULT_USER_EMAIL'],

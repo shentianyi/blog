@@ -1,0 +1,9 @@
+$a-color-base: #00008b;
+a {
+ .article-body & {
+	 font-weight:bold;
+	 color: $a-color-base;
+     &:hover{text-decoration:underline;background-color:none;}
+	 &:visited{color:$a-color-base;}
+ }
+}
