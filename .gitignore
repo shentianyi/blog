@@ -12,7 +12,7 @@
 !/log/.keep
 /tmp
 /.idea
-*.*~config/database.yml
+*.*~config/database*.yml
 *.*~config/secrets.yml
 # Ignore application configuration
 /config/application.yml
