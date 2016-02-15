@@ -32,3 +32,21 @@
       <%= f.submit %>
     </div>
 <% end %>
+<script type="text/javascript">
+	var myEvent = window.attachEvent || window.addEventListener;
+	var chkevent = window.attachEvent ? 'onbeforeunload' : 'beforeunload'; /// make IE7, IE8 compatable
+	var inFormOrLink = false;
+	$('form').on('submit',function(){
+			inFormOrLink=true;
+			});
+
+    myEvent(chkevent, function(e) { // For >=IE7, Chrome, Firefox
+		if(inFormOrLink){
+	    	return null;
+    	}else{     
+		var confirmationMessage = 'Confirm?';  // a space
+		(e || window.event).returnValue = confirmationMessage;
+		return confirmationMessage;
+	}
+ });
+</script>
