@@ -2,7 +2,7 @@
   code:
 </p>
 <p>
-  <%=@code%>
+  <span id="code"><%=@code%></span>
 </p>
 <p>
   state:
@@ -10,3 +10,10 @@
 <p>
   <%=@state%>
 </p>
+
+<script type="text/javascript">
+  $(function(){
+      var code=$('#code').text();
+      console.log(code);
+  });
+</script>
