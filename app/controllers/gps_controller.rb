@@ -16,10 +16,14 @@ class GpsController<ApplicationController
         puts @access_token=result['access_token']
         puts @openid=result['openid']
 
-        uri2=URI('http://42.121.111.38:7070/api/users/bindwxopenid?userid='+@state+'&openid='+@openid)
+        uri2=URI('http://42.121.111.38/api/users/bindwxopenid?userid='+@state+'&openid='+@openid)
         res2= Net::HTTP.get_response(uri2)
         p res2
         p res2.body
+        result2=JSON.parse(res2.body)
+        if !result2['Success']
+          render :fail
+        end
       end
 
     rescue
